@@ -34,7 +34,7 @@
                 <input type="text" class="form-control" id="number">
             </div>
             <button type="button" class="btn btn-primary"><a href="./index.html" style="color: white; text-decoration: none;">Quay lại</a></button>
-            <button type="button" class="btn btn-primary" onclick="addUsers()"><a href="./index.html" style="color: white; text-decoration: none;">Thêm mới</a></button>
+            <button type="button" class="btn btn-primary" onclick="addUsers()">Thêm mới</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -51,14 +51,14 @@
     <script>
         // Thêm sinh viên mới
         function addUsers() {
-            axios.post('http://localhost:3000/users/', {
+            axios.post('https://quan-ly-hoc-vien.herokuapp.com/users/', {
                 "name": document.getElementById('name').value,
-                "year": document.getElementById('year').value,
+                "birthYear": document.getElementById('year').value,
                 "email": document.getElementById('email').value,
                 "phone": document.getElementById('number').value,
             })
                 .then(function (response) {
-                    console.log(response);
+                    window.open("index.html","_self")
                 })
                 .catch(function (error) {
                     console.log(error);

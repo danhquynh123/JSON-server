@@ -104,14 +104,14 @@
 
 
         // Make a request for a user with a given ID
-        axios.get('http://localhost:3000/users')
+        axios.get('https://quan-ly-hoc-vien.herokuapp.com/users')
             .then(function (response) {
                 // handle success
                 var k = '<tbody>'
                 for (i = 0; i < response.data.length; i++) {
                     k += '<tr>';
                     k += '<td>' + response.data[i].name + '</td>';
-                    k += '<td>' + response.data[i].year + '</td>';
+                    k += '<td>' + response.data[i].birthYear + '</td>';
                     k += '<td>' + response.data[i].email + '</td>';
                     k += '<td>' + response.data[i].phone + '</td>';
                     k += `<td>
@@ -146,7 +146,7 @@
         function deleteUser(getId, button) {
             if (confirm("Bạn có chắc chắn muốn xóa dữ liệu không?")) {
                 $.ajax({
-                    url: `http://localhost:3000/users/${getId}`,
+                    url: `https://quan-ly-hoc-vien.herokuapp.com/users/${getId}`,
                     type: 'DELETE'
                 })
                     .done(function () {
